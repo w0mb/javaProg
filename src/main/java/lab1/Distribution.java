@@ -10,6 +10,10 @@ public class Distribution<Type> {
         this.this_type = type;
         need_delete = false;//перегрузить надо будет конструктор
     }
+    public Distribution(Class<Type> type, boolean need_delete) {
+        this.this_type = type;
+        this.need_delete = need_delete;//перегрузить надо будет конструктор
+    }
 
     public void makeDistribution(Type data) {
         String fileName = "";
@@ -46,5 +50,9 @@ public class Distribution<Type> {
         } catch (IOException ex) {
             System.out.println("Ошибка очистки файла: " + fileName);
         }
+    }
+
+    public void resetFirstWriteFlag() {
+        isFirstWrite = true;  // Сбрасываем флаг для последующей очистки
     }
 }
