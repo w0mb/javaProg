@@ -1,9 +1,9 @@
 package lab1;
 
 import java.util.List;
-
-import lab1.DataProcessor;
-import lab1.CommandLineArgs;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Main {
 
@@ -15,13 +15,26 @@ public class Main {
 
             // Получаем список файлов
             List<String> filenames = commandLineArgs.getInputFiles();
+
+            ExecutorService executor = Executors.newFixedThreadPool(4);
+
             for (String filename : filenames) {
-                List<Object> data = dataProcessor.processFile(filename);
-                dataProcessor.processData(data);
+                executor.submit(() -> {
+                    try {
+                        dataProcessor.processFileMultithreaded(filename, 4);
+                    } catch (Exception e) {
+                        System.out.println("Ошибка обработки файла " + filename + ": " + e.getMessage());
+                    }
+                });
+            }
+
+            executor.shutdown();
+            while (!executor.isTerminated()) {
+                // Ждем завершения всех потоков
             }
 
             // Вывод статистики
-            dataProcessor.printStatistics(commandLineArgs);
+            dataProcessor.printStatistics();
 
             // Запись результатов в файлы
             dataProcessor.writeResults();
@@ -31,7 +44,3 @@ public class Main {
         }
     }
 }
-
-
-
-
