@@ -1,12 +1,24 @@
 package lab1;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckType {
+    public int intCount;
+    public int doubleCount;
+    public int stringCount;
+    public int longCount;
 
-    // Метод для проверки всех типов данных из файла и их возврата в виде списка
+    public BigDecimal sum = BigDecimal.ZERO;
+    public BigDecimal avg;
+    public BigDecimal min = BigDecimal.valueOf(Long.MAX_VALUE);
+    public BigDecimal max = BigDecimal.valueOf(Long.MIN_VALUE);
+
+    public int stringMin = 999999999;
+    public int stringMax = 0;
+
     public List<Object> checkTypesFromFile(String filename) {
         List<Object> dataList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -14,30 +26,70 @@ public class CheckType {
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
 
-                // Проверка на Integer (целые числа)
                 if (line.matches("^-?\\d+$")) {
-                    dataList.add(Integer.parseInt(line));
-                }
-                // Проверка на Long (целые числа с буквой L в конце)
-                else if (line.matches("^-?\\d+$")) {
                     try {
-                        dataList.add(Long.parseLong(line));  // Пытаемся записать как Long
+                        int num = Integer.parseInt(line);
+                        dataList.add(num);
+                        intCount++;
+                        BigDecimal value = BigDecimal.valueOf(num);
+                        sum = sum.add(value);
+                        min = min.min(value);
+                        max = max.max(value);
                     } catch (NumberFormatException e) {
-                        // Игнорируем ошибку, если не получилось
+                        long num = Long.parseLong(line);
+                        dataList.add(num);
+                        longCount++;
+                        BigDecimal value = BigDecimal.valueOf(num);
+                        sum = sum.add(value);
+                        min = min.min(value);
+                        max = max.max(value);
                     }
                 }
-                // Проверка на Double (вещественные числа)
-                else if (line.matches("^-?\\d*\\.\\d+$")) {
-                    dataList.add(Double.parseDouble(line));
+                else if (line.matches("^-?\\d+[lL]?$")) {
+                    try {
+                        line = line.replaceAll("[lL]$", "");
+                        long num = Long.parseLong(line);
+                        dataList.add(num);
+                        longCount++;
+                        BigDecimal value = BigDecimal.valueOf(num);
+                        sum = sum.add(value);
+                        min = min.min(value);
+                        max = max.max(value);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Ошибка преобразования в Long: " + line);
+                    }
                 }
-                // Строки: если не попали под вышеописанные условия
+                else if (line.matches("^-?\\d*\\.\\d+$")) {
+                    double num = Double.parseDouble(line);
+                    dataList.add(num);
+                    doubleCount++;
+                    BigDecimal value = BigDecimal.valueOf(num);
+                    sum = sum.add(value);
+                    min = min.min(value);
+                    max = max.max(value);
+                }
                 else {
                     dataList.add(line);
+                    stringCount++;
+                    stringMax = Math.max(stringMax, line.length());
+                    stringMin = Math.min(stringMin, line.length());
                 }
             }
         } catch (IOException ex) {
             System.out.println("Ошибка чтения файла: " + ex.getMessage());
         }
-        return dataList; // Возвращаем все собранные данные
+        return dataList;
     }
+
+    public int getIntCount() { return this.intCount; }
+    public int getLongCount() { return this.longCount; }
+    public int getStringCount() { return this.stringCount; }
+    public int getDoubleCount() { return this.doubleCount; }
+
+    public BigDecimal getSum() { return this.sum; }
+    public BigDecimal getMin() { return this.min; }
+    public BigDecimal getMax() { return this.max; }
+//    public BigDecimal getAvg() { return sum.divide(BigDecimal.valueOf(intCount), 10, BigDecimal.ROUND_HALF_UP);  }
+    public int getStringMin() { return this.stringMin;}
+    public int getStringMax() { return this.stringMax;}
 }

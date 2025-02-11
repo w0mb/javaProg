@@ -14,7 +14,7 @@ public class CheckTypeTest {
     @Test
     public void testCheckTypesFromFileInteger() {
         // Создаем тестовый файл с целыми числами
-        String filename = "src/test/resources/test_integers.txt";
+        String filename = "src/files/test_integers.txt";
 
         // Записываем данные в файл
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -38,7 +38,7 @@ public class CheckTypeTest {
     @Test
     public void testCheckTypesFromFileLong() {
         // Создаем тестовый файл с большими числами
-        String filename = "src/test/resources/test_longs.txt";
+        String filename = "src/files/test_longs.txt";
 
         // Записываем данные в файл
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -62,7 +62,7 @@ public class CheckTypeTest {
     @Test
     public void testCheckTypesFromFileDouble() {
         // Создаем тестовый файл с вещественными числами
-        String filename = "src/test/resources/test_doubles.txt";
+        String filename = "src/files/test_doubles.txt";
 
         // Записываем данные в файл
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -86,7 +86,7 @@ public class CheckTypeTest {
     @Test
     public void testCheckTypesFromFileString() {
         // Создаем тестовый файл со строками
-        String filename = "src/test/resources/test_strings.txt";
+        String filename = "src/files/test_strings.txt";
 
         // Записываем данные в файл
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
