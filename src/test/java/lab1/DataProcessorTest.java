@@ -24,7 +24,9 @@ class DataProcessorTest {
         writer.write("789.123\n");
         writer.close();
 
-        List<Object> data = dataProcessor.processFile(tempFile.getAbsolutePath());
+        dataProcessor.setFilename(tempFile.getAbsolutePath());
+        dataProcessor.processFileMultithreaded();
+        List<Object> data = dataProcessor.getDataList();
 
         assertEquals(4, data.size());
         assertTrue(data.contains(123));
@@ -47,8 +49,10 @@ class DataProcessorTest {
         writer.write("789.123\n");
         writer.close();
 
-        List<Object> data = dataProcessor.processFile(tempFile.getAbsolutePath());
-        dataProcessor.processData(data);
+        dataProcessor.setFilename(tempFile.getAbsolutePath());
+        dataProcessor.processFileMultithreaded();
+        List<Object> data = dataProcessor.getDataList();
+//        dataProcessor.processData(data);
 
         // Проверяем статистику
         assertEquals(2, dataProcessor.getIntCount());
@@ -58,7 +62,7 @@ class DataProcessorTest {
 
     @Test
     void testWriteResults() throws IOException {
-        CommandLineArgs commandLineArgs = new CommandLineArgs(new String[]{"-o", "output/", "-r", "prefix_"});
+        CommandLineArgs commandLineArgs = new CommandLineArgs(new String[]{"-o", "src/", "-r", "prefix_"});
         DataProcessor dataProcessor = new DataProcessor(commandLineArgs);
 
         // Создаем тестовые данные
@@ -70,9 +74,9 @@ class DataProcessorTest {
         dataProcessor.writeResults();
 
         // Проверяем, что файлы созданы
-        File intFile = new File("output/prefix_int.txt");
-        File doubleFile = new File("output/prefix_double.txt");
-        File stringFile = new File("output/prefix_string.txt");
+        File intFile = new File("src/prefix_int.txt");
+        File doubleFile = new File("src/prefix_double.txt");
+        File stringFile = new File("src/prefix_string.txt");
 
         assertTrue(intFile.exists());
         assertTrue(doubleFile.exists());
