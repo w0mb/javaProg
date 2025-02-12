@@ -26,7 +26,7 @@ class CommandLineArgs {
                 case "-s":
                     shortStats = true;
                     break;
-                case "-#":
+                case "-f":
                     fullStats = true;
                     break;
                 default:

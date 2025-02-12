@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("application") // Добавляем Application Plugin
+    id("application")
 }
 
 group = "org.example"

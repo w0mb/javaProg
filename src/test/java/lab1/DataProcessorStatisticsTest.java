@@ -26,7 +26,7 @@ class DataProcessorStatisticsTest {
 
     @Test
     void testFullStatistics() {
-        CommandLineArgs commandLineArgs = new CommandLineArgs(new String[]{"-#", "-s"});
+        CommandLineArgs commandLineArgs = new CommandLineArgs(new String[]{"-f", "-s"});
         DataProcessor dataProcessor = new DataProcessor(commandLineArgs);
 
         // Создаем тестовые данные

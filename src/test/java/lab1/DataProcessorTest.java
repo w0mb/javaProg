@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.*;
 import java.util.List;
 
-import lab1.CommandLineArgs;
-
 class DataProcessorTest {
 
     @Test
@@ -25,9 +23,10 @@ class DataProcessorTest {
         writer.close();
 
         dataProcessor.setFilename(tempFile.getAbsolutePath());
-        dataProcessor.processFileMultithreaded();
+        dataProcessor.processFile();
         List<Object> data = dataProcessor.getDataList();
 
+        // Проверяем, что данные были обработаны
         assertEquals(4, data.size());
         assertTrue(data.contains(123));
         assertTrue(data.contains(456));
@@ -50,9 +49,8 @@ class DataProcessorTest {
         writer.close();
 
         dataProcessor.setFilename(tempFile.getAbsolutePath());
-        dataProcessor.processFileMultithreaded();
+        dataProcessor.processFile();
         List<Object> data = dataProcessor.getDataList();
-//        dataProcessor.processData(data);
 
         // Проверяем статистику
         assertEquals(2, dataProcessor.getIntCount());
