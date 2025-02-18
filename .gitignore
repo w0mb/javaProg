@@ -41,7 +41,11 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-.gigaide
-.idea
+/gradle
+/.gigaide
+/.idea
 .gradle/wrapper
 *.txt
+gradlew
+gradlew.bat
+settings.gradle.kts
