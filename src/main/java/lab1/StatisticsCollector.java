@@ -55,6 +55,7 @@ public class StatisticsCollector {
         System.out.println("Integers: " + this.integers.size());
         System.out.println("Doubles: " + this.doubles.size());
         System.out.println("Strings: " + this.strings.size());
+        System.out.println("Longs: " + this.longs.size());
         System.out.println("Sum: " + this.sum);
         System.out.println("Min: " + this.min);
         System.out.println("Max: " + this.max);

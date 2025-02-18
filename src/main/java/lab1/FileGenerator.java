@@ -1,5 +1,8 @@
 package lab1;
 
+import lab1.factory.DataWriterFactory;
+import lab1.thread.AbstractDataWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,34 +11,54 @@ public class FileGenerator {
     private final int totalObjects;
     private final String filename;
 
-    public FileGenerator(int threadCount, int totalObjects, String filename) {
-        this.threadCount = threadCount;
-        this.totalObjects = totalObjects;
-        this.filename = filename;
+    public FileGenerator(Builder builder) {
+        this.threadCount = builder.threadCount;
+        this.totalObjects = builder.totalObjects;
+        this.filename = builder.filename;
     }
 
     public void generate() {
-        List<MultiThreadProcessor.RandomObjectWriter> threads = new ArrayList<>();
+        List<Thread> threads = new ArrayList<>();
+        int objectsPerThread = totalObjects / threadCount;
 
         for (int i = 0; i < threadCount; i++) {
-            System.out.print("Thread " + (i + 1) + ": [                                                  ] 0%\n");
+            AbstractDataWriter writer = DataWriterFactory.getWriter(objectsPerThread, filename);
+            writer.start();
+            threads.add(writer);
         }
 
-        for (int i = 0; i < threadCount; i++) {
-            MultiThreadProcessor.RandomObjectWriter thread =
-                new MultiThreadProcessor.RandomObjectWriter(i + 1, totalObjects / threadCount, filename);
-            thread.start();
-            threads.add(thread);
-        }
-
-        for (MultiThreadProcessor.RandomObjectWriter thread : threads) {
+        for (Thread thread : threads) {
             try {
                 thread.join();
-                System.out.println("Thread #" + thread.getThreadNumber() + " (ID: " + thread.getId() + ") completed in "
-                    + thread.getExecutionTime() + " ms");
             } catch (InterruptedException e) {
                 System.out.println("Thread interrupted: " + e.getMessage());
             }
         }
     }
+
+    public static class Builder {
+        private int threadCount;
+        private int totalObjects;
+        private String filename;
+
+        public Builder setThreadCount(int threadCount) {
+            this.threadCount = threadCount;
+            return this;
+        }
+
+        public Builder setTotalObjects(int totalObjects) {
+            this.totalObjects = totalObjects;
+            return this;
+        }
+
+        public Builder setFilename(String filename) {
+            this.filename = filename;
+            return this;
+        }
+
+        public FileGenerator build() {
+            return new FileGenerator(this);
+        }
+    }
 }
+

@@ -6,10 +6,11 @@ public class RandomDataFactory {
     private static final Random RANDOM = new Random();
 
     public static Object getRandomObject() {
-        switch (RANDOM.nextInt(3)) {
+        switch (RANDOM.nextInt(4)) {
             case 0: return RANDOM.nextInt();
             case 1: return RANDOM.nextDouble();
-            case 2: return getRandomString();
+            case 2: return RANDOM.nextLong();
+            case 3: return getRandomString();
             default: return null;
         }
     }

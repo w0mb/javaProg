@@ -17,7 +17,11 @@ public class StartFileCreating {
             inputFiles.add(filename);
         }
 
-        FileGenerator generator = new FileGenerator(threadCount, totalObjects, filename);
+        FileGenerator generator = new FileGenerator.Builder()
+        .setThreadCount(threadCount)
+        .setTotalObjects(totalObjects)
+        .setFilename(filename)
+        .build();
         generator.generate();
     }
 }
