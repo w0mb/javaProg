@@ -47,25 +47,7 @@ public class Main {
         }
 
         if (answer1.equals("n") || !inputFiles.isEmpty()) {
-            try {
-                CommandLineArgs commandLineArgs = new CommandLineArgs(args);
-                DataProcessor dataProcessor = new DataProcessor(commandLineArgs);
-                inputFiles.addAll(commandLineArgs.getInputFiles()); // Добавляем файлы из аргументов командной строки
-
-                for (String filename : inputFiles) {
-                    try {
-                        dataProcessor.setFilename(filename);
-                        dataProcessor.processFile();
-                    } catch (Exception e) {
-                        System.out.println("Error uploading file " + filename + ": " + e.getMessage());
-                    }
-                }
-
-                dataProcessor.printStatistics(commandLineArgs);
-                dataProcessor.writeResults();
-            } catch (Exception e) {
-                System.out.println("Error during file write: " + e.getMessage());
-            }
+            StartFileProcess.start(inputFiles, args);
         }
 
         scanner.close();
