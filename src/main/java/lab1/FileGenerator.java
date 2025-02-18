@@ -2,11 +2,12 @@ package lab1;
 
 import lab1.factory.DataWriterFactory;
 import lab1.thread.AbstractDataWriter;
+import lab1.thread.ProgressListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileGenerator {
+public class FileGenerator implements ProgressListener {
     private final int threadCount;
     private final int totalObjects;
     private final String filename;
@@ -17,12 +18,25 @@ public class FileGenerator {
         this.filename = builder.filename;
     }
 
+@Override
+public void onProgress(int threadNumber, int progress) {
+    // Выводим прогресс в главном потоке
+    String progressBar = String.format("Thread #%d (ID: %d): [", threadNumber, Thread.currentThread().getId());
+    int progressBarLength = 50; // Длина прогресс бара
+    int filledLength = (int) (progressBarLength * progress / 100.0);
+    String progressBarString = "=".repeat(filledLength) + " ".repeat(progressBarLength - filledLength);
+
+    // Каждый раз выводим в новую строку, чтобы избежать наложения
+    System.out.println(progressBar + progressBarString + "] " + progress + "%");
+}
+
+
     public void generate() {
         List<Thread> threads = new ArrayList<>();
         int objectsPerThread = totalObjects / threadCount;
 
         for (int i = 0; i < threadCount; i++) {
-            AbstractDataWriter writer = DataWriterFactory.getWriter(objectsPerThread, filename);
+            AbstractDataWriter writer = DataWriterFactory.getWriter(objectsPerThread, filename, i + 1, this);
             writer.start();
             threads.add(writer);
         }
@@ -34,6 +48,7 @@ public class FileGenerator {
                 System.out.println("Thread interrupted: " + e.getMessage());
             }
         }
+        System.out.println();  // Переход на новую строку после завершения всех потоков
     }
 
     public static class Builder {
@@ -61,4 +76,3 @@ public class FileGenerator {
         }
     }
 }
-
