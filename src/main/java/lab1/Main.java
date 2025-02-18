@@ -1,44 +1,73 @@
 package lab1;
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Starting file generation with random objects...");
+        Scanner scanner = new Scanner(System.in);
 
-        int THREAD_COUNT = 2;
-        int TOTAL_OBJECTS = 1000;
-        String FILENAME = "test.txt";
+        System.out.print("Are you want to create new file with data? (y/n): ");
+        String answer1 = scanner.next();
 
-        // Создаем и запускаем потоки
-        for (int i = 0; i < THREAD_COUNT; i++) {
-            new MultiThreadProcessor.RandomObjectWriter(TOTAL_OBJECTS / THREAD_COUNT, FILENAME, i).start();
-        }
+        List<String> inputFiles = new ArrayList<>();
 
-        try {
-            System.out.println("startRun");
+        if (answer1.equals("y")) {
+            System.out.print("Enter number of threads and total objects: ");
+            int THREAD_COUNT = scanner.nextInt();
+            int TOTAL_OBJECTS = scanner.nextInt();
+            System.out.print("Enter filename for thread output: ");
+            String FILENAME = scanner.next();
 
-            CommandLineArgs commandLineArgs = new CommandLineArgs(args);
-            DataProcessor dataProcessor = new DataProcessor(commandLineArgs);
-            List<String> filenames = commandLineArgs.getInputFiles();
+            System.out.print("Are you want to make this file input for DataProcessor? (y/n): ");
+            String answer2 = scanner.next();
+            if (answer2.equals("y")) {inputFiles.add(FILENAME);}
 
-            for (String filename : filenames) {
-                try {
-                    System.out.println("Setting filename: " + filename);
-                    dataProcessor.setFilename(filename);
-                    System.out.println("Run processFile");
-                    dataProcessor.processFile();
-                } catch (Exception e) {
-                    System.out.println("Error uploading file " + filename + ": " + e.getMessage());
-                }
+            List<MultiThreadProcessor.RandomObjectWriter> threads = new ArrayList<>();
+
+            for (int i = 0; i < THREAD_COUNT; i++) {
+                System.out.print("Thread " + (i + 1) + ": [                                                  ] 0%\n");
             }
 
-            dataProcessor.printStatistics(commandLineArgs);
-            dataProcessor.writeResults();
+            for (int i = 0; i < THREAD_COUNT; i++) {
+                MultiThreadProcessor.RandomObjectWriter thread = new MultiThreadProcessor.RandomObjectWriter(i + 1, TOTAL_OBJECTS / THREAD_COUNT, FILENAME);
+                thread.start();
+                threads.add(thread);
+            }
 
-        } catch (Exception e) {
-            System.out.println("Error during file write: " + e.getMessage());
+            for (MultiThreadProcessor.RandomObjectWriter thread : threads) {
+                try {
+                    thread.join();
+                    System.out.println("Thread #" + thread.getThreadNumber() + " (ID: " + thread.getId() + ") completed in " + thread.getExecutionTime() + " ms");
+                } catch (InterruptedException e) {
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
+            }
         }
+
+        if (answer1.equals("n") || !inputFiles.isEmpty()) {
+            try {
+                CommandLineArgs commandLineArgs = new CommandLineArgs(args);
+                DataProcessor dataProcessor = new DataProcessor(commandLineArgs);
+                inputFiles.addAll(commandLineArgs.getInputFiles()); // Добавляем файлы из аргументов командной строки
+
+                for (String filename : inputFiles) {
+                    try {
+                        dataProcessor.setFilename(filename);
+                        dataProcessor.processFile();
+                    } catch (Exception e) {
+                        System.out.println("Error uploading file " + filename + ": " + e.getMessage());
+                    }
+                }
+
+                dataProcessor.printStatistics(commandLineArgs);
+                dataProcessor.writeResults();
+            } catch (Exception e) {
+                System.out.println("Error during file write: " + e.getMessage());
+            }
+        }
+
+        scanner.close();
     }
 }

@@ -44,3 +44,4 @@ bin/
 .gigaide
 .idea
 .gradle/wrapper
+*.txt
