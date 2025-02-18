@@ -28,21 +28,19 @@ class DataProcessor {
     public DataProcessor(CommandLineArgs commandLineArgs) {
         this.commandLineArgs = commandLineArgs;
     }
+    public DataProcessor() {
+        this.commandLineArgs = null;
+    }
 
     public void processFile() throws IOException {
-        System.out.println("processFile started");
         List<String> lines = readFile(filename);
 
-        // Обрабатываем данные последовательно
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
             if (!line.isEmpty()) {
                 processLine(line);
             }
         }
-
-        // Выводим статистику
-//        printStatistics(commandLineArgs);
     }
 
     private List<String> readFile(String filename) throws IOException {
