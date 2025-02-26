@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5a307b1d-f6e4-45d4-9dec-fd32e6096e51" name="Changes" comment="change filewritter">
+      <change afterPath="$PROJECT_DIR$/lab3/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab3/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab3/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab3/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/prefix_double.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/prefix_int.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/prefix_string.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/files/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/CommandLineArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/CommandLineArgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/DataProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/MultiThreadProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/MultiThreadProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/StartFileCreating.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/StartFileCreating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab1/StartFileProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/main/java/lab1/StartFileProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lab1/CommandLineArgsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/test/java/lab1/CommandLineArgsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lab1/DataProcessorStatisticsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/test/java/lab1/DataProcessorStatisticsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lab1/DataProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/src/test/java/lab1/DataProcessorTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;w0mb&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/w0mb/javaProg.git&quot;,
+    &quot;accountId&quot;: &quot;0ff604e1-06d3-4e54-b1ca-26bc59a0dd87&quot;
+  }
+}</component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2spwC8Mz58moFzWhSUZnwS6Q9Pq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.CheckTypeTest.executor": "Run",
+    "Gradle.CommandLineArgsTest.executor": "Run",
+    "Gradle.DataProcessorStatisticsTest.executor": "Run",
+    "Gradle.DataProcessorStatisticsTest.testFullStatistics.executor": "Run",
+    "Gradle.DataProcessorTest.executor": "Run",
+    "Gradle.DistributionTest.executor": "Run",
+    "Gradle.javaProg [:Main.main()].executor": "Run",
+    "Gradle.javaProg [:lab1.Main.main()].executor": "Run",
+    "Gradle.javaProg [:lab1.Out0000011111.main()].executor": "Run",
+    "Gradle.javaProg [:lab1.main.main()].executor": "Run",
+    "Gradle.javaProg [:org.example.Main.main()].executor": "Run",
+    "Gradle.test.executor": "Run",
+    "Gradle.Сборка javaProg.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/danil/OneDrive/Рабочий стол/stud/JavaProg/javaProg/lab3",
+    "onboarding.tips.debug.path": "C:/Users/danil/OneDrive/Рабочий стол/stud/JavaProg/javaProg/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Модули",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "Приложение.Main.executor": "Coverage"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg\lab3" />
+      <recent name="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg" />
+      <recent name="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg\lab1" />
+      <recent name="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg\src\files" />
+      <recent name="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg\src\main\java\lab1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Приложение.Main">
+    <configuration name="БезИмя" type="Application" factoryName="Application" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true" show_console_on_std_err="true" show_console_on_std_out="true">
+      <output_file path="C:\Users\danil\OneDrive\Рабочий стол\stud\JavaProg\javaProg" is_save="true" />
+      <option name="MAIN_CLASS_NAME" value="lab1.Main" />
+      <module name="javaProg.main" />
+      <option name="PROGRAM_PARAMETERS" value="-o src/files/ -r myPrefix_ -a -f src/files/input.txt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataProcessorStatisticsTest.testFullStatistics" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;lab1.DataProcessorStatisticsTest.testFullStatistics&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;lab1&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.DataProcessorStatisticsTest.testFullStatistics" />
+      <item itemvalue="Gradle.test" />
+      <item itemvalue="Приложение.БезИмя" />
+      <item itemvalue="Приложение.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Приложение.Main" />
+        <item itemvalue="Gradle.DataProcessorStatisticsTest.testFullStatistics" />
+        <item itemvalue="Gradle.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a307b1d-f6e4-45d4-9dec-fd32e6096e51" name="Changes" comment="" />
+      <created>1739165695428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739165695428</updated>
+    </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1739178141462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739178141462</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add test for Destribition class">
+      <option name="closed" value="true" />
+      <created>1739180039003</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739180039003</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add test for checkType class">
+      <option name="closed" value="true" />
+      <created>1739180202961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739180202961</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add stats short and stats full">
+      <option name="closed" value="true" />
+      <created>1739253902324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739253902324</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add tests for arg parsing">
+      <option name="closed" value="true" />
+      <created>1739277662299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739277662299</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add tests for arg parsing">
+      <option name="closed" value="true" />
+      <created>1739286849509</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739286849509</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add tests for arg parsing">
+      <option name="closed" value="true" />
+      <created>1739287049797</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739287049797</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add threads brogress bars">
+      <option name="closed" value="true" />
+      <created>1739346117699</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739346117699</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add threads brogress bars">
+      <option name="closed" value="true" />
+      <created>1739349286250</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739349286250</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add sync threads without gui">
+      <option name="closed" value="true" />
+      <created>1739809425194</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739809425194</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add logic to creating ThreadInput and add ignoring .txt files finaly">
+      <option name="closed" value="true" />
+      <created>1739883315999</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739883315999</updated>
+    </task>
+    <task id="LOCAL-00012" summary="change ignore">
+      <option name="closed" value="true" />
+      <created>1739883555710</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739883555710</updated>
+    </task>
+    <task id="LOCAL-00013" summary="change ignore">
+      <option name="closed" value="true" />
+      <created>1739883709999</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739883709999</updated>
+    </task>
+    <task id="LOCAL-00014" summary="rm cached">
+      <option name="closed" value="true" />
+      <created>1739883792166</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739883792166</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add files rep">
+      <option name="closed" value="true" />
+      <created>1739883903289</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1739883903289</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add new class StartFileProcess">
+      <option name="closed" value="true" />
+      <created>1739884306741</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739884306741</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add new class StartFileCreating">
+      <option name="closed" value="true" />
+      <created>1739884875209</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739884875209</updated>
+    </task>
+    <task id="LOCAL-00018" summary="change proj struct">
+      <option name="closed" value="true" />
+      <created>1739891965432</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1739891965432</updated>
+    </task>
+    <task id="LOCAL-00019" summary="change proj struct for threads">
+      <option name="closed" value="true" />
+      <created>1739894745278</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1739894745278</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add thread id and number and progressBar">
+      <option name="closed" value="true" />
+      <created>1739896818083</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1739896818083</updated>
+    </task>
+    <task id="LOCAL-00021" summary="change filewritter">
+      <option name="closed" value="true" />
+      <created>1739940084667</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739940084667</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <MESSAGE value="add test for Destribition class" />
+    <MESSAGE value="add test for checkType class" />
+    <MESSAGE value="add stats short and stats full" />
+    <MESSAGE value="add tests for arg parsing" />
+    <MESSAGE value="add threads brogress bars" />
+    <MESSAGE value="add sync threads without gui" />
+    <MESSAGE value="add logic to creating ThreadInput and add ignoring .txt files finaly" />
+    <MESSAGE value="change ignore" />
+    <MESSAGE value="rm cached" />
+    <MESSAGE value="add files rep" />
+    <MESSAGE value="add new class StartFileProcess" />
+    <MESSAGE value="add new class StartFileCreating" />
+    <MESSAGE value="change proj struct" />
+    <MESSAGE value="change proj struct for threads" />
+    <MESSAGE value="add thread id and number and progressBar" />
+    <MESSAGE value="change filewritter" />
+    <option name="LAST_COMMIT_MESSAGE" value="change filewritter" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/javaProg$DistributionTest.ic" NAME="DistributionTest Результаты покрытия" MODIFIED="1739179170461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/javaProg$Main.ic" NAME="Main Результаты покрытия" MODIFIED="1739282356380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>lab1.*</FILTER>
+    </SUITE>
+  </component>
+</project>
