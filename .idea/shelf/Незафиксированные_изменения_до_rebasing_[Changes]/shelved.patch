@@ -1,0 +1,139 @@
+Index: src/main/java/lab1/DataProcessor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/lab1/DataProcessor.java b/lab1/src/main/java/lab1/DataProcessor.java
+rename from src/main/java/lab1/DataProcessor.java
+rename to lab1/src/main/java/lab1/DataProcessor.java
+--- a/src/main/java/lab1/DataProcessor.java	(revision dd2432516278ab5459ca130452b5533a90e4de11)
++++ b/lab1/src/main/java/lab1/DataProcessor.java	(date 1739943885084)
+@@ -58,18 +58,21 @@
+         List<Object> dataList = this.dataList;
+ 
+         if (line.matches("^-?\\d+$")) {
+-            int num = Integer.parseInt(line);
+-            integers.add(num);
+-            intCount++;
+-            dataList.add(num);
+-            updateStats(num);
+-        } else if (line.matches("^-?\\d+[lL]?$")) {
+-            long num = Long.parseLong(line.replaceAll("[lL]$", ""));
+-            longs.add(num);
+-            longCount++;
+-            dataList.add(num);
+-            updateStats(num);
+-        } else if (line.matches("^-?\\d*\\.\\d+$")) {
++            try {
++                int num = Integer.parseInt(line);
++                integers.add(num);
++                intCount++;
++                dataList.add(num);
++                updateStats(num);
++            } catch (NumberFormatException e) {
++                long num = Long.parseLong(line);
++                longs.add(num);
++                longCount++;
++                dataList.add(num);
++                updateStats(num);
++            }
++        }
++            else if (line.matches("^-?\\d*\\.\\d+$")) {
+             double num = Double.parseDouble(line);
+             doubles.add(num);
+             doubleCount++;
+@@ -123,16 +126,20 @@
+         if (!longs.isEmpty()) writeFile("long.txt", longs);
+     }
+ 
+-    private <T> void writeFile(String fileName, List<T> data) throws IOException {
+-        String filePath = commandLineArgs.getOutputPath() + commandLineArgs.getPrefix() + fileName;
+-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, commandLineArgs.isAppend()))) {
+-            for (T item : data) {
+-                writer.write(item.toString());
+-                writer.newLine();
+-            }
+-        }
+-    }
++private <T> void writeFile(String fileName, List<T> data) throws IOException {
++    String filePath = commandLineArgs.getOutputPath() + commandLineArgs.getPrefix() + fileName;
++    boolean append = commandLineArgs.isAppend(); // проверяем флаг -a
++
++    // Если append == false, то перезаписываем файл
++    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, append))) {
++        for (T item : data) {
++            writer.write(item.toString());
++            writer.newLine();
++        }
++    }
++}
+ 
++
+     public void setFilename(String filename) { this.filename = filename; }
+     public List<Object> getDataList() { return this.dataList; }
+     public String getFilename() { return this.filename; }
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/lab1/.gitignore
+rename from .gitignore
+rename to lab1/.gitignore
+--- a/.gitignore	(revision dd2432516278ab5459ca130452b5533a90e4de11)
++++ b/lab1/.gitignore	(date 1740548756247)
+@@ -5,10 +5,10 @@
+ !**/src/test/**/build/
+ 
+ ### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
++lab1/.idea/modules.xml
++lab1/.idea/jarRepositories.xml
++lab1/.idea/compiler.xml
++lab1/.idea/libraries/
+ *.iws
+ *.iml
+ *.ipr
+@@ -41,9 +41,9 @@
+ ### Mac OS ###
+ .DS_Store
+ 
+-/gradle
+-/.gigaide
+-/.idea
++/lab1/gradle
++/lab1/.gigaide
++/lab1/.idea
+ .gradle/wrapper
+ *.txt
+ gradlew
+diff --git a/src/main/java/lab1/CommandLineArgs.java b/lab1/src/main/java/lab1/CommandLineArgs.java
+rename from src/main/java/lab1/CommandLineArgs.java
+rename to lab1/src/main/java/lab1/CommandLineArgs.java
+diff --git a/src/main/java/lab1/Main.java b/lab1/src/main/java/lab1/Main.java
+rename from src/main/java/lab1/Main.java
+rename to lab1/src/main/java/lab1/Main.java
+diff --git a/src/main/java/lab1/StartFileCreating.java b/lab1/src/main/java/lab1/StartFileCreating.java
+rename from src/main/java/lab1/StartFileCreating.java
+rename to lab1/src/main/java/lab1/StartFileCreating.java
+diff --git a/src/test/java/lab1/CommandLineArgsTest.java b/lab1/src/test/java/lab1/CommandLineArgsTest.java
+rename from src/test/java/lab1/CommandLineArgsTest.java
+rename to lab1/src/test/java/lab1/CommandLineArgsTest.java
+diff --git a/build.gradle.kts b/lab1/build.gradle.kts
+rename from build.gradle.kts
+rename to lab1/build.gradle.kts
+diff --git a/src/main/java/lab1/MultiThreadProcessor.java b/lab1/src/main/java/lab1/MultiThreadProcessor.java
+rename from src/main/java/lab1/MultiThreadProcessor.java
+rename to lab1/src/main/java/lab1/MultiThreadProcessor.java
+diff --git a/src/test/java/lab1/DataProcessorStatisticsTest.java b/lab1/src/test/java/lab1/DataProcessorStatisticsTest.java
+rename from src/test/java/lab1/DataProcessorStatisticsTest.java
+rename to lab1/src/test/java/lab1/DataProcessorStatisticsTest.java
+diff --git a/src/test/java/lab1/DataProcessorTest.java b/lab1/src/test/java/lab1/DataProcessorTest.java
+rename from src/test/java/lab1/DataProcessorTest.java
+rename to lab1/src/test/java/lab1/DataProcessorTest.java
+diff --git a/src/main/java/lab1/StartFileProcess.java b/lab1/src/main/java/lab1/StartFileProcess.java
+rename from src/main/java/lab1/StartFileProcess.java
+rename to lab1/src/main/java/lab1/StartFileProcess.java

@@ -1,14 +1,14 @@
-.gradle
+lab1/.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+lab1/.idea/modules.xml
+lab1/.idea/jarRepositories.xml
+lab1/.idea/compiler.xml
+lab1/.idea/libraries/
 *.iws
 *.iml
 *.ipr
@@ -41,9 +41,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-/gradle
-/.gigaide
-/.idea
+/lab1/gradle
+/lab1/.gigaide
+/lab1/.idea
 .gradle/wrapper
 *.txt
 gradlew

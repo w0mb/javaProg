@@ -1,0 +1,9 @@
+<changelist name="Незафиксированные_изменения_до_rebasing_[Changes]1" date="1740548838423" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Незафиксированные_изменения_до_rebasing_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Незафиксированные изменения до rebasing [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="src/files/.gitkeep" />
+    <option name="AFTER_PATH" value="lab1/src/files/.gitkeep" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Незафиксированные_изменения_до_rebasing_[Changes]1/.gitkeep" />
+  </binary>
+</changelist>

@@ -58,18 +58,21 @@ class DataProcessor {
         List<Object> dataList = this.dataList;
 
         if (line.matches("^-?\\d+$")) {
-            int num = Integer.parseInt(line);
-            integers.add(num);
-            intCount++;
-            dataList.add(num);
-            updateStats(num);
-        } else if (line.matches("^-?\\d+[lL]?$")) {
-            long num = Long.parseLong(line.replaceAll("[lL]$", ""));
-            longs.add(num);
-            longCount++;
-            dataList.add(num);
-            updateStats(num);
-        } else if (line.matches("^-?\\d*\\.\\d+$")) {
+            try {
+                int num = Integer.parseInt(line);
+                integers.add(num);
+                intCount++;
+                dataList.add(num);
+                updateStats(num);
+            } catch (NumberFormatException e) {
+                long num = Long.parseLong(line);
+                longs.add(num);
+                longCount++;
+                dataList.add(num);
+                updateStats(num);
+            }
+        }
+            else if (line.matches("^-?\\d*\\.\\d+$")) {
             double num = Double.parseDouble(line);
             doubles.add(num);
             doubleCount++;
@@ -123,15 +126,19 @@ class DataProcessor {
         if (!longs.isEmpty()) writeFile("long.txt", longs);
     }
 
-    private <T> void writeFile(String fileName, List<T> data) throws IOException {
-        String filePath = commandLineArgs.getOutputPath() + commandLineArgs.getPrefix() + fileName;
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, commandLineArgs.isAppend()))) {
-            for (T item : data) {
-                writer.write(item.toString());
-                writer.newLine();
-            }
+private <T> void writeFile(String fileName, List<T> data) throws IOException {
+    String filePath = commandLineArgs.getOutputPath() + commandLineArgs.getPrefix() + fileName;
+    boolean append = commandLineArgs.isAppend(); // проверяем флаг -a
+
+    // Если append == false, то перезаписываем файл
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, append))) {
+        for (T item : data) {
+            writer.write(item.toString());
+            writer.newLine();
         }
     }
+}
+
 
     public void setFilename(String filename) { this.filename = filename; }
     public List<Object> getDataList() { return this.dataList; }
